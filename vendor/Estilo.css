@@ -1,0 +1,214 @@
+﻿
+#siteseal {
+   
+}
+
+    #siteseal img {
+        width: 150px;
+        border-radius: 7px;
+        filter: drop-shadow(5px 5px 10px #444);
+    }
+
+.pagination-ys {
+    /*display: inline-block;*/
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+    .pagination-ys table > tbody > tr > td {
+        display: inline;
+    }
+
+        .pagination-ys table > tbody > tr > td > a,
+        .pagination-ys table > tbody > tr > td > span {
+            position: relative;
+            float: left;
+            padding: 8px 12px;
+            line-height: 1.42857143;
+            text-decoration: none;
+            color: #337ab7; /*#dd4814;*/
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            margin-left: -1px;
+        }
+
+        .pagination-ys table > tbody > tr > td > span {
+            position: relative;
+            float: left;
+            padding: 8px 12px;
+            line-height: 1.42857143;
+            text-decoration: none;
+            margin-left: -1px;
+            color: #FE2E2E; /*#aea79f;*/
+            background-color: #f5f5f5;
+            border-color: #dddddd;
+            cursor: default;
+            font-weight: bold;
+        }
+
+        .pagination-ys table > tbody > tr > td:first-child > a,
+        .pagination-ys table > tbody > tr > td:first-child > span {
+            margin-left: 0;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+        }
+
+        .pagination-ys table > tbody > tr > td:last-child > a,
+        .pagination-ys table > tbody > tr > td:last-child > span {
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .pagination-ys table > tbody > tr > td > a:hover,
+        .pagination-ys table > tbody > tr > td > span:hover,
+        .pagination-ys table > tbody > tr > td > a:focus,
+        .pagination-ys table > tbody > tr > td > span:focus {
+            color: #337ab7; /*#97310e;*/
+            background-color: #eeeeee;
+            border-color: #dddddd;
+            border-radius: 13px;
+        }
+		
+.tableRespo {
+    width: 100% !important;
+}
+
+@media screen and (min-width: 400px) {
+    .tableRespo {
+        width: 130% !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .tableRespo {
+        width: 40% !important;
+    }
+}
+
+.tableFind {
+    width: 100% !important;
+}
+
+@media screen and (min-width: 400px) {
+    .tableFind {
+        width: 140% !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .tableFind{
+        width: 75% !important;
+    }
+}
+
+.loginR {
+    width: 100% !important;
+}
+
+@media screen and (min-width: 400px) {
+    .loginR {
+        width: 136% !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .loginR{
+        width: 100% !important;
+    }
+}
+
+.creacionR {
+    width: 100% !important;
+}
+
+@media screen and (min-width: 400px) {
+    .creacionR {
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .creacionR{
+        width: 50% !important;
+    }
+}
+
+
+
+.modalR {
+    width: 350px !important;
+    height: 660px !important;
+    top: 8px !important;
+}
+
+@media screen and (min-width: 400px) {
+    .modalR {
+        width: 400px !important;
+        height: auto !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .modalR {
+        width: 800px !important;
+        height: auto !important;
+    }
+}
+
+
+
+.loginFont {
+    width: 105px !important;
+    height: 25px !important;
+    font-size: 10px !important;
+}
+
+@media screen and (min-width: 400px) {
+    .loginFont {
+        width: 100% !important;
+        height: 40px !important;
+        font-size: 15px !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .loginFont {
+        width: 800px !important;
+        height: auto !important;
+    }
+}
+
+.loginButton {
+    font-size: 10px !important;
+}
+
+@media screen and (min-width: 400px) {
+    .loginButton {
+        width: 135px !important;
+        height: 25px !important;
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .loginButton {
+        font-size: 15px !important;
+    }
+}
+
+.popUpR {
+    max-height: 550px !important;
+}
+
+@media screen and (min-width: 400px) {
+    .popUpR {
+        max-height: 600px !important;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .popUpR {
+        max-height: 800px !important;
+    }
+}

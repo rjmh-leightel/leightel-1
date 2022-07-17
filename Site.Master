@@ -1,0 +1,249 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="FESAJustificacion.SiteMaster" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <!--initial-scale=1.0" /> -->
+
+    <meta name="description" content="">
+    <meta name="author" content="FESAECUADOR S.A.">
+
+    <title>FESA</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="vendor/Estilo.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <script type="text/javascript" src="Scripts/BrowserPrint-2.0.0.75.min.js"></script>
+
+    <link href="Content/Site.css" rel="stylesheet" />
+</head>
+<body style="background-color:white;">
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>  
+                 <img class="navbar-brand logo" id="logoCliente" src="img/Inventario.png" runat=server style="padding: 5px 5px 5px 5px; width:60px; height:60px;cursor: pointer;" onclick="tamanio()" /> 
+                <a class="navbar-brand" style="padding: 25px 15px !important;" href="Inicio.aspx"><asp:Label runat="server" ID="lbl_empresa"></asp:Label></a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                
+                 <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages" id="ul_alertas" runat=server >
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <asp:Label ID="lbl_ftUsuario" style="font-weight: normal; font-style: italic; font-weight:bolder; padding-left:20px;" runat="server"></asp:Label>
+                        <li class="divider"> </li>
+                        <li runat="server" id="li_apk">
+                         <asp:HyperLink  runat="server" ID="lb_descargaAPK" ToolTip="Descargar APK" >
+                                        <img src="img/act_apk.png" width="12%" />&nbsp;&nbsp;APK
+                                    </asp:HyperLink>
+                        </li>
+                        <li><a href="Login.aspx"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+
+               
+
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div id="menu" class="navbar-default sidebar" role="navigation" style="height:90vh">
+                <div class="sidebar-nav navbar-collapse" style="height: auto; max-height: 650px; overflow-x: hidden">
+                     <ul class="nav" id="side_menu" runat="server" style="background: #f8f8f8">
+                    
+                        
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper" style="margin-top: 45px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <asp:Label runat="server" ID="id_cabecera" Style="font-size: x-large !important;"></asp:Label>
+                    </h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel-body">
+                        <form runat="server">
+
+                            <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableScriptGlobalization="true" AsyncPostBackTimeout="360000"
+                                EnableScriptLocalization="true">
+                            </cc1:ToolkitScriptManager>
+
+                            <div class="body-content">
+
+
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                        </asp:ContentPlaceHolder>
+
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+
+                            </div>
+
+                            <asp:UpdateProgress ID="UpdateProgress1" runat="server" DisplayAfter="0" AssociatedUpdatePanelID="UpdatePanel1">
+                                <ProgressTemplate>
+                                    <div class="overlay" />
+                                    <div class="overlayContent">
+                                        <img src="img/procesando.gif" alt="Procesando..." />
+                                    </div>
+                                </ProgressTemplate>
+                            </asp:UpdateProgress>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.row -->
+            <hr />
+            <footer style="position: fixed; bottom: 0; width: 100%; height: 50px; z-index: 9999" class="navbar-default">
+                    <center>
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-6 col-xs-6 text-left" style="padding-top: 15px;">
+                                 <strong>Fesa - &copy; <%: DateTime.Now.Year %></strong>
+                            </div>
+
+                            <div class="col-lg-6 col-sm-1 col-xs-1 text-center"></div>
+
+                          
+                         </div>   
+                    </center> 
+            </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="vendor/raphael/raphael.min.js"></script>
+    <script src="vendor/morrisjs/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            try {
+                
+         
+                    $("#page-wrapper").css('margin-left', '0px');
+                    $('#menu').hide();
+                
+            } catch (e) {
+                 alert(e);
+            }
+
+            setTimeout(function () {
+                $(".pMensaje").fadeOut(1500);
+            }, 6000);
+        });
+
+        function sleep(milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > milliseconds) {
+                    break;
+                }
+            }
+        }
+
+        function numbersonly(e) {
+            var unicode = e.charCode ? e.charCode : e.keyCode
+            if (unicode != 8 && unicode != 44) {
+                if (unicode < 48 || unicode > 57) //if not a number
+                { return false } //disable key press    
+            }
+        }
+
+         function tamanio() {
+ 
+            try {
+
+                $('#menu').toggle("slide");
+
+                /*var height = $("#page-wrapper").css('margin-left');
+            
+                if (height.toString() != '0px') {
+         
+                    $("#page-wrapper").css('margin-left', '0px');
+                    $('#menu').hide();
+                }
+                else {
+          
+                    $("#page-wrapper").css('margin-left', '250px');
+                    $('#menu').show();
+                }*/
+            } catch (e) {
+                 alert(e);
+            }
+            
+        }  
+
+    </script>
+
+
+</body>
+</html>
